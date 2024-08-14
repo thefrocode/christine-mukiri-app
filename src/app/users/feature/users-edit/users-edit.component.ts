@@ -15,9 +15,7 @@ export class UsersEditComponent {
   constructor(
     public dialogRef: MatDialogRef<UsersEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    console.log(this.user);
-  }
+  ) {}
   onUserEdited(user: User) {
     this.dialogRef.close({
       ...user,

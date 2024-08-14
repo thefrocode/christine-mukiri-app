@@ -32,8 +32,8 @@ export const AuthStore = signalStore(
     token: computed(() => user()?.token),
   })),
   withStorageSync({
-    key: 'auth', // key used when writing to/reading from storage
-    autoSync: true, // read from storage on init and write on state changes - `true` by default
+    key: 'auth',
+    autoSync: true,
     select: (state) => {
       return { user: state.user };
     },
@@ -54,14 +54,12 @@ export const AuthStore = signalStore(
             authApi.login(credentials).pipe(
               tapResponse({
                 next: (user: any) => {
-                  console.log('user', user);
                   patchState(store, {
                     user: user,
                     status: 'success',
                   });
                 },
                 error: (error: any) => {
-                  console.log('error', error);
                   toastr.error(error.error.message);
                   patchState(store, {
                     status: 'error',
