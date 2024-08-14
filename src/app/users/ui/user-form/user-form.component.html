@@ -1,0 +1,37 @@
+<div class="bg-white p-3 w-full">
+  <form
+    [formGroup]="usersForm"
+    (ngSubmit)="onSubmit()"
+    class="flex flex-col gap-3"
+  >
+    <h1>{{ type }} User</h1>
+    <div>
+      <input
+        type="text"
+        placeholder="First Name"
+        formControlName="usrFirstname"
+        class="border border-black rounded-md p-1 w-full"
+      />
+    </div>
+
+    <div>
+      <input
+        type="text"
+        placeholder="Last Name"
+        formControlName="usrLastname"
+        class="border border-black rounded-md p-1 w-full"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="User Name"
+        formControlName="usrUsername"
+        class="border border-black rounded-md p-1 w-full"
+      />
+    </div>
+    <button type="submit" class="bg-green-800 p-2 text-white rounded-md">
+      {{ type }} User
+    </button>
+  </form>
+</div>

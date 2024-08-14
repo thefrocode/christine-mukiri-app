@@ -1,0 +1,20 @@
+<div class="m-4">
+  <div class="flex flex-row justify-between">
+    <p>Users</p>
+    <button (click)="addUser()" class="bg-green-800 p-2 text-white rounded-md">
+      Add User
+    </button>
+  </div>
+  <div class="mt-5">
+    <ag-grid-angular
+      class="ag-theme-quartz"
+      style="height: 350px"
+      [rowData]="usersStore.users()"
+      [columnDefs]="colDefs"
+      [pagination]="true"
+      [paginationPageSize]="20"
+      [paginationPageSizeSelector]="[10, 20, 50, 100]"
+      (gridReady)="onGridReady($event)"
+    />
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form="ngForm">
+  <div
+    class="flex flex-col gap-6 w-1/2 mx-auto my-16 bg-gray-100 p-10 rounded-md"
+  >
+    <div>
+      <input
+        type="text"
+        placeholder="user name"
+        formControlName="username"
+        class="border border-black rounded-md p-1 w-full"
+      />
+      @if(f['username'].invalid && (f['username'].touched || form.submitted)){
+      <div class="text-danger my-1">
+        @if(f['username'].errors?.['required']){
+        <span>Username is required</span>
+        }
+      </div>
+      }
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Password"
+        formControlName="password"
+        class="border border-black rounded-md p-1 w-full"
+      />
+      @if(f['password'].invalid && (f['password'].touched || form.submitted)){
+      <div class="text-danger my-1">
+        @if(f['password'].errors?.['required']){
+        <span>Password is required</span>
+        }
+      </div>
+      }
+    </div>
+
+    <button type="submit" class="bg-green-800 p-2 text-white rounded-md">
+      Login
+    </button>
+  </div>
+</form>
