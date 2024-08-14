@@ -30,7 +30,6 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.invalid) {
-      console.log(this.loginForm.value);
       return;
     }
     this.authStore.login(this.loginForm.value);

@@ -27,7 +27,7 @@ export class UsersApiService {
   }
   editUser(user: User): Observable<User> {
     return this.http.patch<User>(
-      `${this.appConfig.baseURL}/users/${user.id}`,
+      `${this.appConfig.baseURL}/edit/${user.usrId}`,
       user
     );
   }

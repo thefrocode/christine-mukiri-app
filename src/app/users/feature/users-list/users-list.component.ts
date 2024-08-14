@@ -117,7 +117,6 @@ export class UsersListComponent {
     });
   }
   editUser(user: any) {
-    console.log(user);
     const dialogRef = this.dialog.open(UsersEditComponent, {
       width: '500px',
       data: { user: user },

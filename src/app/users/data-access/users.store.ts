@@ -35,7 +35,6 @@ export const UsersStore = signalStore(
             return usersApi.loadUsers().pipe(
               tapResponse({
                 next: (users: any) => {
-                  console.log('users', users);
                   patchState(store, {
                     users: users.payload.content,
                     status: 'success',
@@ -63,7 +62,6 @@ export const UsersStore = signalStore(
             usersApi.addUser(user).pipe(
               tapResponse({
                 next: (user: any) => {
-                  console.log(user.payload);
                   patchState(store, {
                     status: 'success',
                     users: [...store.users(), user.payload],
@@ -94,7 +92,7 @@ export const UsersStore = signalStore(
                 next: (user: any) => {
                   const userIndex = store
                     .users()
-                    .findIndex((u: User) => u.id === user.id);
+                    .findIndex((u: User) => u.usrId === user.id);
                   const users = [...store.users()];
                   users[userIndex] = user.payload;
                   patchState(store, {
@@ -126,7 +124,7 @@ export const UsersStore = signalStore(
                 next: (user: User) => {
                   const userIndex = store
                     .users()
-                    .findIndex((u: User) => u.id === user_id);
+                    .findIndex((u: User) => u.usrId === user_id);
                   store.users().splice(userIndex, 1);
                   patchState(store, {
                     users: [...store.users()],

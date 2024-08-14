@@ -1,6 +1,8 @@
 export interface User {
-  id: number;
-  name: string;
+  usrId: number;
+  usrFirstname: string;
+  usrLastname: string;
+  usrUsername: string;
 }
 export interface AuthCredentials {
   username: string;

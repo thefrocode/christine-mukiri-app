@@ -31,25 +31,18 @@ export class UserFormComponent {
       usrUsername: ['', Validators.required],
     });
     if (this.user) {
-      console.log(this.user);
       this.usersForm.patchValue(this.user);
     }
-    console.log(this.type);
   }
   ngOnChanges() {
-    console.log(this.user);
     if (this.user) {
-      console.log(this.user);
       this.usersForm.patchValue(this.user);
     }
   }
   onSubmit() {
-    console.log(this.usersForm.value);
     if (this.usersForm.invalid) {
-      console.log(this.usersForm.value);
       return;
     }
-    console.log(this.usersForm.value);
     this.submitted.emit(this.usersForm.value);
   }
 }
